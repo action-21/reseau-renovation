@@ -1,0 +1,8 @@
+[
+  { "code": "A01", "codes": ["A01", "B01"], "label": "Information de premier niveau"},
+  { "code": "A02", "codes": ["A02", "B02"], "label": "Conseil personnalisé"},
+  { "code": "A03", "codes": ["A03"], "label": "Audit énergétique"},
+  { "code": "A04", "codes": ["A04"], "label": "Accompagnement travaux"},
+  { "code": "A4b", "codes": ["A4b", "A4bis"], "label": "Accompagnement et suivi travaux"},
+  { "code": "A05", "codes": ["A05"], "label": "Assistance Maîtrise d'oeuvre"}
+]

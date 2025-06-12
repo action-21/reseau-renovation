@@ -1,0 +1,47 @@
+title: Réseau du Service public de la rénovation énergétique des bâtiments
+description: Liste des professionnels référencés du réseau du Service public de la rénovation énergétique des bâtiments
+owner: France Rénov'
+packages:
+  entreprises:
+    title: Entreprises
+    description: Liste des entreprises du réseau du Service public de la rénovation énergétique des bâtiments
+    owner: ADEME
+    licence: https://www.etalab.gouv.fr/licence-ouverte-open-licence
+    home: https://data.ademe.fr/datasets/liste-des-entreprises-rge-2
+    versions:
+      current:
+        schema: https://raw.githubusercontent.com/action-21/reseau-renovation/refs/heads/main/schema.entreprise.yaml
+        url: https://api.france-renov.gouv.fr/entreprises
+        openapi: https://raw.githubusercontent.com/action-21/reseau-renovation/refs/heads/main/openapi.yaml
+  auditeurs:
+    title: Auditeurs
+    description: Liste des auditeurs du réseau du Service public de la rénovation énergétique des bâtiments
+    owner: ADEME
+    licence: https://www.etalab.gouv.fr/licence-ouverte-open-licence
+    home: https://data.ademe.fr/datasets/liste-des-entreprises-rge-2
+    versions:
+      current:
+        schema: https://raw.githubusercontent.com/action-21/reseau-renovation/refs/heads/main/schema.auditeur.yaml
+        url: https://api.france-renov.gouv.fr/auditeurs
+        openapi: https://raw.githubusercontent.com/action-21/reseau-renovation/refs/heads/main/openapi.yaml
+  espacesConseil:
+    title: Espaces Conseil
+    description: Liste des espaces conseil du réseau du Service public de la rénovation énergétique des bâtiments
+    owner: ADEME
+    licence: https://www.etalab.gouv.fr/licence-ouverte-open-licence
+    home: https://data.ademe.fr/datasets/liste-espaces-conseil-france-renov
+    versions:
+      current:
+        schema: https://raw.githubusercontent.com/action-21/reseau-renovation/refs/heads/main/schema.espace-conseil.yaml
+        url: https://api.france-renov.gouv.fr/espaces-conseil
+        openapi: https://raw.githubusercontent.com/action-21/reseau-renovation/refs/heads/main/openapi.yaml
+  accompagnateurs:
+    title: Accompagnateurs
+    description: Liste des accompagnateurs du réseau du Service public de la rénovation énergétique des bâtiments
+    owner: ADEME
+    licence: https://www.etalab.gouv.fr/licence-ouverte-open-licence
+    versions:
+      current:
+        schema: https://raw.githubusercontent.com/action-21/reseau-renovation/refs/heads/main/schema.accompagnateur.yaml
+        url: https://api.france-renov.gouv.fr/accompagnateurs
+        openapi: https://raw.githubusercontent.com/action-21/reseau-renovation/refs/heads/main/openapi.yaml

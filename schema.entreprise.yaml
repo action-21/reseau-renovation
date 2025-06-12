@@ -1,0 +1,147 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Entreprise du Service public de la rénovation énergétique des bâtiments
+type: object
+properties:
+  id:
+    title: Identifiant
+    type: string
+  siren:
+    title: Numéro SIREN
+    type: string
+  raison_sociale:
+    title: Dénomination
+    type: string
+  qualifications:
+    title: Qualifications
+    type: array
+    items:
+      type: object
+      properties:
+        domaine:
+          title: Domaine
+          type: string
+          oneOf:
+            - const: "21"
+              title: Fenêtres, volets, portes extérieures 2020
+            - const: "23"
+              title: Isolation du toit 2020
+            - const: "29"
+              title: Projet complet de rénovation
+            - const: "72"
+              title: Audit énergétique
+            - const: "73"
+              title: Etude solaire thermique
+            - const: "74"
+              title: Etude solaire photovoltaïque
+            - const: "75"
+              title: Etude thermique reglementaire
+            - const: "76"
+              title: Etude forage géothermique
+            - const: "77"
+              title: Etude ACV
+            - const: "78"
+              title: Etude enveloppe du bâtiment
+            - const: "79"
+              title: Etude système technique bâtiment
+            - const: "80"
+              title: Etude bois énergie
+            - const: "81"
+              title: Etude eclairage
+            - const: "82"
+              title: Commisionnement
+            - const: "83"
+              title: Architecte
+            - const: "85"
+              title: Chaudière condensation ou micro-cogénération gaz ou fioul
+            - const: "86"
+              title: Chauffage et/ou eau chaude solaire
+            - const: "87"
+              title: Chaudière bois
+            - const: "88"
+              title: Poêle ou insert bois
+            - const: "89"
+              title: "Pompe à chaleur : chauffage"
+            - const: "90"
+              title: Chauffe-Eau Thermodynamique
+            - const: "91"
+              title: Radiateurs électriques, dont régulation.
+            - const: "92"
+              title: Ventilation mécanique
+            - const: "93"
+              title: Fenêtres, volets, portes donnant sur l'extérieur
+            - const: "94"
+              title: Fenêtres de toit
+            - const: "95"
+              title: Isolation par l'intérieur des murs ou rampants de toitures  ou plafonds
+            - const: "96"
+              title: Isolation des murs par l'extérieur
+            - const: "97"
+              title: Isolation des toitures terrasses ou des toitures par l'extérieur
+            - const: "98"
+              title: Isolation des combles perdus
+            - const: "99"
+              title: Isolation des planchers bas
+            - const: "100"
+              title: Forage géothermique
+            - const: "101"
+              title: Panneaux solaires photovoltaïques
+        date_debut:
+          title: Date de début de la qualification
+          type: string
+          format: date
+        date_fin:
+          title: Date de fin de la qualification
+          type: [string, "null"]
+          format: date
+          default: null
+      required:
+        - domaine
+        - date_debut
+        - date_fin
+  adresse:
+    title: Adresse
+    description: Adresse au format [BAN](https://doc.adresse.data.gouv.fr)
+    type: object
+    properties:
+      id:
+        title: Identifiant de l'adresse dans la BAN
+        type: [string, "null"]
+        default: null
+      numero:
+        title: Numéro de la voie
+        type: [string, "null"]
+      nom_voie:
+        title: Nom de la voie
+        type: string
+      code_postal:
+        title: Code postal
+        type: string
+      code_insee:
+        title: Code INSEE
+        type: string
+      nom_commune:
+        title: Nom de la commune
+        type: string
+      lat:
+        title: Latitude
+        type: [number, "null"]
+        default: null
+      lon:
+        title: Longitude
+        type: [number, "null"]
+        default: null
+    required:
+      - id
+      - numero
+      - nom_voie
+      - code_postal
+      - code_insee
+      - nom_commune
+      - lat
+      - lon
+required:
+  - id
+  - siren
+  - raison_sociale
+  - qualifications
+  - adresse

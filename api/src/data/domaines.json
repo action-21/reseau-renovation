@@ -1,0 +1,14 @@
+[
+  { "label": "Architecte", "code": "architecte"},
+  { "label": "Audit énergétique Logement collectif", "code": "audit-energetique-logement-collectif" },
+  { "label": "Audit énergétique Maison individuelle", "code": "audit-energetique-maison-individuelle" },
+  { "label": "Chaudière bois", "code": "chaudiere-bois" },
+  { "label": "Chaudière condensation ou micro-cogénération gaz ou fioul", "code": "chaudiere-condensation" },
+  { "label": "Chauffage et/ou eau chaude solaire", "code": "chauffage-eau-chaude-solaire" },
+  { "label": "Chauffe-Eau Thermodynamique", "code": "chauffe-eau-thermodynamique" },
+  { "label": "Commisionnement", "code": "commisionnement" },
+  { "label": "Etude ACV", "code": "etude-acv" },
+  { "label": "Etude bois énergie", "code": "etude-bois-energie" },
+  { "label": "Etude eclairage", "code": "etude-eclairage" },
+  { "label": "Etude enveloppe du bâtiment", "code": "etude-enveloppe-batiment" }
+]

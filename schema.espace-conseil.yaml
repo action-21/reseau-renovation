@@ -1,0 +1,78 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Espace Conseil du Service public de la rénovation énergétique des bâtiments
+type: object
+properties:
+  id:
+    title: Identifiant
+    type: string
+  raison_sociale:
+    title: Dénomination
+    type: string
+  actes:
+    title: Actes couverts
+    type: array
+    items:
+      type: string
+      oneOf:
+        - const: "A01"
+          title: Information de premier niveau
+        - const: "A02"
+          title: Conseil personalisé
+        - const: "A03"
+          title: Audit énergétique
+        - const: "A04"
+          title: Accompagnement travaux
+        - const: "A4b"
+          title: Accompagnement et suivi travaux
+        - const: "A05"
+          title: Assistance Maitrise d'Oeuvre
+        - const: "B01"
+          title: Information de premier niveau
+        - const: "B02"
+          title: Conseil personalisé
+  adresse:
+    title: Adresse
+    description: Adresse au format [BAN](https://doc.adresse.data.gouv.fr)
+    type: object
+    properties:
+      id:
+        title: Identifiant de l'adresse dans la BAN
+        type: [string, "null"]
+        default: null
+      numero:
+        title: Numéro de la voie
+        type: [string, "null"]
+      nom_voie:
+        title: Nom de la voie
+        type: string
+      code_postal:
+        title: Code postal
+        type: string
+      code_insee:
+        title: Code INSEE
+        type: string
+      nom_commune:
+        title: Nom de la commune
+        type: string
+      lat:
+        title: Latitude
+        type: [number, "null"]
+        default: null
+      lon:
+        title: Longitude
+        type: [number, "null"]
+        default: null
+    required:
+      - id
+      - numero
+      - nom_voie
+      - code_postal
+      - code_insee
+      - nom_commune
+      - lat
+      - lon
+required:
+  - id
+  - raison_sociale
+  - actes
+  - adresse

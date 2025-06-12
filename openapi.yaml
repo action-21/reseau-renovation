@@ -1,0 +1,232 @@
+openapi: 3.1.0
+info:
+  title: Réseau du Service public de rénovation énergétique des bâtiments
+  version: 1.0.0
+#servers:
+#- url: !changeMe!
+tags:
+  - name: Accompagnateur
+  - name: Auditeur
+  - name: Espace Conseil
+  - name: Entreprise
+paths:
+  /accompagnateurs:
+    get:
+      summary: Recherche une liste d'accompagnateurs
+      tags:
+        - Accompagnateur
+      parameters:
+        - $ref: "#/components/parameters/codeInsee"
+        - $ref: "#/components/parameters/distance"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/accompagnateur"
+        "400":
+          $ref: "#/components/responses/400"
+  /accompagnateurs/{id}:
+    parameters:
+      - $ref: "#/components/parameters/id"
+      - $ref: "#/components/parameters/date"
+    get:
+      summary: Recherche un accompagnateur
+      tags:
+        - Accompagnateur
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/accompagnateur"
+        "400":
+          $ref: "#/components/responses/400"
+        "404":
+          $ref: "#/components/responses/404"
+  /auditeurs:
+    get:
+      summary: Recherche une liste d'auditeurs
+      tags:
+        - Auditeur
+      parameters:
+        - $ref: "#/components/parameters/codeInsee"
+        - $ref: "#/components/parameters/distance"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/auditeur"
+        "400":
+          $ref: "#/components/responses/400"
+  /auditeurs/{id}:
+    parameters:
+      - $ref: "#/components/parameters/id"
+        description: Numéro SIREN
+      - $ref: "#/components/parameters/date"
+    get:
+      summary: Recherche un auditeur
+      tags:
+        - Auditeur
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/auditeur"
+        "400":
+          $ref: "#/components/responses/400"
+        "404":
+          $ref: "#/components/responses/404"
+  /espaces-conseil:
+    get:
+      summary: Recherche une liste d'espaces conseil
+      tags:
+        - Espace Conseil
+      parameters:
+        - $ref: "#/components/parameters/codeInsee"
+        - $ref: "#/components/parameters/distance"
+        - name: acte[]
+          description: Filtre par actes couverts
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/espace-conseil"
+        "400":
+          $ref: "#/components/responses/400"
+  /espaces-conseil/{id}:
+    parameters:
+      - $ref: "#/components/parameters/id"
+      - $ref: "#/components/parameters/date"
+    get:
+      summary: Recherche un espace conseil
+      tags:
+        - Espace Conseil
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/espace-conseil"
+        "400":
+          $ref: "#/components/responses/400"
+        "404":
+          $ref: "#/components/responses/404"
+  /entreprises:
+    get:
+      summary: Recherche une liste d'entreprises
+      tags:
+        - Entreprise
+      parameters:
+        - $ref: "#/components/parameters/codeInsee"
+        - $ref: "#/components/parameters/distance"
+        - name: domaine[]
+          description: Filtre par domaine couvert
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/entreprise"
+        "400":
+          $ref: "#/components/responses/400"
+  /entreprises/{id}:
+    parameters:
+      - $ref: "#/components/parameters/id"
+        description: Numéro SIREN
+      - $ref: "#/components/parameters/date"
+      - name: domaine[]
+        description: Filtre par domaine couvert
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+    get:
+      summary: Recherche une entreprise
+      tags:
+        - Entreprise
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/entreprise"
+        "400":
+          $ref: "#/components/responses/400"
+        "404":
+          $ref: "#/components/responses/404"
+components:
+  parameters:
+    id:
+      name: id
+      description: Idenfifiant
+      in: path
+      required: true
+      schema:
+        type: string
+    codeInsee:
+      name: code_insee
+      description: Filtre par couverture géographique
+      in: query
+      schema:
+        type: string
+    distance:
+      name: distance
+      description: Filtre par distance au format longitude:latitude:distance
+      in: query
+      schema:
+        type: string
+        pattern: (\d+[.]\d+)[:](\d+[.]\d+)[:](\d+[.]\d+)
+    date:
+      name: date
+      description: Filtre par date
+      in: query
+      schema:
+        type: string
+        format: date
+  responses:
+    "200":
+      description: OK
+    "400":
+      description: Bad request
+    "404":
+      description: Not found
+  schemas:
+    accompagnateur:
+      $ref: "https://raw.githubusercontent.com/action-21/reseau-renovation/refs/heads/main/schema.accompagnateur.yaml"
+    auditeur:
+      $ref: "https://raw.githubusercontent.com/action-21/reseau-renovation/refs/heads/main/schema.auditeur.yaml"
+    espace-conseil:
+      $ref: "https://raw.githubusercontent.com/action-21/reseau-renovation/refs/heads/main/schema.espace-conseil.yaml"
+    entreprise:
+      $ref: "https://raw.githubusercontent.com/action-21/reseau-renovation/refs/heads/main/schema.entreprise.yaml"

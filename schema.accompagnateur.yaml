@@ -1,0 +1,70 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Accompagnateur du Service public de la rénovation énergétique des bâtiments
+type: object
+properties:
+  id:
+    title: Identifiant
+    type: string
+  siren:
+    title: Numéro SIREN
+    type: string
+  raison_sociale:
+    title: Dénomination
+    type: string
+  date_debut_agrement:
+    title: Date de début de l'agrément
+    type: string
+    format: date
+  date_fin_agrement:
+    title: Date de fin de l'agrément
+    type: [string, "null"]
+    format: date
+    default: null
+  adresse:
+    title: Adresse
+    description: Adresse au format [BAN](https://doc.adresse.data.gouv.fr)
+    type: object
+    properties:
+      id:
+        title: Identifiant de l'adresse dans la BAN
+        type: [string, "null"]
+        default: null
+      numero:
+        title: Numéro de la voie
+        type: [string, "null"]
+      nom_voie:
+        title: Nom de la voie
+        type: string
+      code_postal:
+        title: Code postal
+        type: string
+      code_insee:
+        title: Code INSEE
+        type: string
+      nom_commune:
+        title: Nom de la commune
+        type: string
+      lat:
+        title: Latitude
+        type: [number, "null"]
+        default: null
+      lon:
+        title: Longitude
+        type: [number, "null"]
+        default: null
+    required:
+      - id
+      - numero
+      - nom_voie
+      - code_postal
+      - code_insee
+      - nom_commune
+      - lat
+      - lon
+required:
+  - id
+  - siren
+  - raison_sociale
+  - date_debut_agrement
+  - date_fin_agrement
+  - adresse
